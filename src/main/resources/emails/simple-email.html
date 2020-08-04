@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<div th:include=" fragments/header :: cool-header ">
+</div>
+<ul>
+    <li th:text="|the product name is ${product.getName()}|">
+    </li>
+    <li>
+        the product price is [[${product.getPrice()}]]
+    </li>
+    <li th:unless="${product.getPrice()}>100">
+        nice price, Hello it's me !
+    </li>
+    <li th:if="${product.getPrice()}>100">
+        too expensive, Hello from the other side !
+    </li>
+</ul>
+<div th:include=" fragments/footer :: cool-footer "></div>
+
+</body>
+</html>

@@ -15,7 +15,7 @@ public class Home {
 
     @GetMapping("/simple-email-1")
     public String simpleEmail1(){
-
+        //return the rendered page as a string;
         return renderEmailTemplateService.renderSimpleEmail("BMW",200L);
     }
 

@@ -13,6 +13,7 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 public class ThymeleafTemplateEngineConfig {
     @Bean
     @Description("Thymeleaf template resolver serving HTML 5")
+    //where to look thymeleaf for templates ?
     public ClassLoaderTemplateResolver templateResolver() {
 
         var templateResolver = new ClassLoaderTemplateResolver();
@@ -26,6 +27,7 @@ public class ThymeleafTemplateEngineConfig {
 
     @Bean
     @Description("Thymeleaf template engine with Spring integration")
+    //create the thymeleaf template engine bean
     public SpringTemplateEngine thymeleafTemplateEngine() {
 
         var templateEngine = new SpringTemplateEngine();

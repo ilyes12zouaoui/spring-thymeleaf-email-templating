@@ -1,5 +1,6 @@
 package com.lass.dynamictemplateemail.configs.email;
 
+// representation of data in the thymeleaf template
 public class SimpleEmailTemplateModel {
 
     private String name;

@@ -15,9 +15,11 @@ public class RenderEmailTemplateService {
     private SpringTemplateEngine thymeleafTemplateEngine;
 
     public String renderSimpleEmail(String name, Long price){
-        SimpleEmailTemplateModel simpleEmailTemplateModel = new SimpleEmailTemplateModel(name,price);
+        // create a context and set it up
         Context thymeleafContext = new Context();
-        thymeleafContext.setVariable("product", simpleEmailTemplateModel);
+        thymeleafContext.setVariable("product", new SimpleEmailTemplateModel(name,price));
+
+        // return the rendered page as a string
         return thymeleafTemplateEngine.process(SIMPLE_EMAIL, thymeleafContext);
     }
 }

@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
 import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.dialect.IDialect;
+import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.templatemode.TemplateMode;
@@ -25,6 +27,7 @@ public class ThymeleafTemplateEngineConfig {
         return templateResolver;
     }
 
+
     @Bean
     @Description("Thymeleaf template engine with Spring integration")
     //create the thymeleaf template engine bean
@@ -32,7 +35,7 @@ public class ThymeleafTemplateEngineConfig {
 
         var templateEngine = new SpringTemplateEngine();
         templateEngine.setTemplateResolver(templateResolver());
-
+        templateEngine.addDialect(new Java8TimeDialect());
         return templateEngine;
     }
 }

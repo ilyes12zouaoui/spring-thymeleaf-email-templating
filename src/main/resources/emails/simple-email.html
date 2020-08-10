@@ -7,7 +7,9 @@
 <div th:include=" fragments/header :: cool-header ">
 </div>
 <ul>
-    <li th:text="|the product name is ${product.getName()}|">
+    <li th:text="|the product name is ${product.getName()}
+    aaaaa
+    fffffff|">
     </li>
     <li>
         the product price is [[${product.getPrice()}]]
@@ -19,6 +21,9 @@
         too expensive, Hello from the other side !
     </li>
 </ul>
+<p th:text="${#temporals.format(product.getLocalDate(), 'yyyy-MM-dd')}">
+
+</p>
 <div th:include=" fragments/footer :: cool-footer "></div>
 
 </body>

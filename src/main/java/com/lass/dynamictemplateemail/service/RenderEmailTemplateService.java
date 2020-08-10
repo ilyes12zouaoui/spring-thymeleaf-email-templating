@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring5.SpringTemplateEngine;
 
+import java.time.LocalDate;
+
 @Service
 public class RenderEmailTemplateService {
 
@@ -14,10 +16,10 @@ public class RenderEmailTemplateService {
     @Autowired
     private SpringTemplateEngine thymeleafTemplateEngine;
 
-    public String renderSimpleEmail(String name, Long price){
+    public String renderSimpleEmail(String name, Long price, LocalDate localDate){
         // create a context and set it up
         Context thymeleafContext = new Context();
-        thymeleafContext.setVariable("product", new SimpleEmailTemplateModel(name,price));
+        thymeleafContext.setVariable("product", new SimpleEmailTemplateModel(name,price,localDate));
 
         // return the rendered page as a string
         return thymeleafTemplateEngine.process(SIMPLE_EMAIL, thymeleafContext);
